@@ -48,18 +48,25 @@ def order_pizza():
         toppings = input("What toppings would you like to add? (Type X to finish): ")
         if toppings == '1':
             Pepperoni = True
+            TExit = True
         elif toppings == '2':
             Sausage = True
+            TExit = True
         elif toppings == '3':
             Ham = True
+            TExit = True
         elif toppings == '4':
             BellPeppers = True
+            TExit = True
         elif toppings == '5':
             Bacon = True
+            Exit = True
         elif toppings == '6':
             Olives = True
+            TExit = True
         elif toppings == '7':
             Anchovy = True
+            TExit = True
         elif toppings == 'X':
             TExit = True
         else:
@@ -146,7 +153,7 @@ def main_menu():
         they pick, they will get the menu of pizzas, checkout, see their cart, or exit the menu.
         """
         choice = 0
-        choice = input("Choose an option 1-4")
+        choice = input("Choose an option 1-4: ")
         if choice =="1":
             order_pizza()
         elif choice =="2":
