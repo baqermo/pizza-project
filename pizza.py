@@ -12,25 +12,28 @@ def order_pizza():
     # Loop for selecting the pizza size
     while SExit == False:
         size = input("What size would you like? (Type S, M, or L): ")
-        if input == 'S':
+        if size == 'S':
             Small = True
-        elif input == 'M':
+            SExit = True
+        elif size == 'M':
             Medium = True
-        elif input == 'L':
+            SExit = True
+        elif size == 'L':
             Large = True
+            SExit = True
         elif Small == True or Medium == True or Large == True:
             SExit = True
         else:
             print("Please input a valid size")
     # Displays prices for toppings
     print("Now add toppings! every pizza already has sauce and cheese included")
-    print("Pepperoni = 1.99")
-    print("Sausage = 1.99")
-    print("Ham = 1.99")
-    print("Bell Peppers = 1.99")
-    print("Bacon = 2.99")
-    print("Olives = 2.99")
-    print("Anchovy = 2.99")
+    print("1. Pepperoni = 1.99")
+    print("2. Sausage = 1.99")
+    print("3. Ham = 1.99")
+    print("4. Bell Peppers = 1.99")
+    print("5. Bacon = 2.99")
+    print("6. Olives = 2.99")
+    print("7. Anchovy = 2.99")
     # Setting variables to check which toppings are added
     TExit = False
     Pepperoni = False
@@ -43,19 +46,19 @@ def order_pizza():
     # Loop for adding toppings
     while TExit == False:
         toppings = input("What toppings would you like to add? (Type X to finish): ")
-        if toppings == 'Pepperoni':
+        if toppings == '1':
             Pepperoni = True
-        elif toppings == 'Sausage':
+        elif toppings == '2':
             Sausage = True
-        elif toppings == 'Ham':
+        elif toppings == '3':
             Ham = True
-        elif toppings == 'Bell Peppers':
+        elif toppings == '4':
             BellPeppers = True
-        elif toppings == 'Bacon':
+        elif toppings == '5':
             Bacon = True
-        elif toppings == 'Olives':
+        elif toppings == '6':
             Olives = True
-        elif toppings == 'Anchovy':
+        elif toppings == '7':
             Anchovy = True
         elif toppings == 'X':
             TExit = True
@@ -131,35 +134,35 @@ def checkout():
 
 def main_menu():
     Mexit = False
-    while MExit == False:
+    while Mexit == False:
         print("PIZZA ORDERING MENU")
         print("1. Order Pizza")
         print("2. View Cart")
         print("3. Checkout")
         print("4. Exit")
-    """
-    Displays the menu with number choices to pick from, user must pick numbers 1-4
-    or they will get a message prompting them to pick from the options. based on the number
-    they pick, they will get the menu of pizzas, checkout, see their cart, or exit the menu.
-    """
-    choice = 0
-    choice = input("Choose an option 1-4")
-    if choice =="1":
-        order_pizza()
-    elif choice =="2":
-        if OrderPlaced == True:
-            view_cart()
+        """
+        Displays the menu with number choices to pick from, user must pick numbers 1-4
+        or they will get a message prompting them to pick from the options. based on the number
+        they pick, they will get the menu of pizzas, checkout, see their cart, or exit the menu.
+        """
+        choice = 0
+        choice = input("Choose an option 1-4")
+        if choice =="1":
+            order_pizza()
+        elif choice =="2":
+            if OrderPlaced == True:
+                view_cart()
+            else:
+                print("Please place an order first!")
+        elif choice =="3":
+            if OrderPlaced == True:
+                checkout()
+            else:
+                print("Please place an order first!")
+        elif choice =="4":
+            print("Goodbye, Have a great day!")
+            Mexit = True
         else:
-            print("Please place an order first!")
-    elif choice =="3":
-        if OrderPlaced == True:
-            checkout()
-        else:
-            print("Please place an order first!")
-    elif choice =="4":
-        print("Goodbye, Have a great day!")
-        Mexit = True
-    else:
-        print("Please pick a Choice from 1 to 4")
+            print("Please pick a Choice from 1 to 4")
 OrderPlaced = False
 main_menu()
